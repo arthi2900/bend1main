@@ -10,6 +10,7 @@ const multer=require("multer");
 const path=require("path");
 dotenv.config();
 app.use(bodyParser.json());
+const PORT=process.env.PORT;
 app.use(express.json());
 app.use("/images",express.static(path.join(__dirname,"/images")))
  mongoose.connect(process.env.MONGO_URL, {
@@ -40,6 +41,7 @@ app.use("/arthi",(req,res)=>{
     console.log("hey hello")
 })
 console.log("hi");
-app.listen("5000",()=>{
-    console.log("backend successfully connect");
+
+app.listen(PORT,function(){
+  console.log(`successfull start from ${PORT}`)
 })
